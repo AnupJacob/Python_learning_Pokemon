@@ -3,6 +3,79 @@
 '''
 
 
+def pokemonparty():
+
+    for i in range(0, len(pokemon)):
+        print(pokemon[i])
+    return "success"
+
+def pokemonbox1():
+    for j in range(0, len(box1)):
+        print(box1[j])
+    return "success"
+
+def changepokemon():
+    while (choice == 'Y' or choice == 'y'):
+
+        print("\nYou can change the pokemon listed below from the box: ")
+
+        pokemonbox1()
+
+        addpokemon = input("Enter the pokemon to be added to your party:")
+        sendpokemon = input("Enter the pokemon to be sent to the box")
+
+        if addpokemon not in box1:
+            print("Sorry, "+addpokemon+" is not in the box")
+
+            if sendpokemon not in pokemon:
+                print("Sorry, "+sendpokemon+" is not in your party")
+            else:
+                 pass
+        else:
+            pokemon.remove(sendpokemon)
+            pokemon.append(addpokemon)
+            box1.remove(addpokemon)
+            box1.append(sendpokemon)
+
+            print("The "+addpokemon+" has been added to your party and "+sendpokemon+ " has been send to your PC")
+
+            print("\nYour new pokemon party is below: ")
+            pokemonparty()
+
+            print("\nYour updated box is below: ")
+            pokemonbox1()
+
+            proceed = input("Do you want to continue?: ")
+            if(proceed =='y' or proceed =='Y'):
+                pass
+            else:
+                return
+
+def catchpokemon():
+    while newchoice == 'Y' or newchoice == 'y':
+        newpokemon = input("Enter the new pokemon you just caught: ")
+
+        if int(lenpokemon) >= 6:
+            print("Sending the new pokemon to box as you already have 6 pokemon")
+            box1.append(newpokemon)
+        else:
+            pokemon.append(newpokemon)
+
+        print("len(pokemon): "+str(len(pokemon)))
+        print("len(box1): " + str(len(box1)))
+
+        print("\nYour new pokemon party is below: ")
+        pokemonparty()
+
+        print("Your updated box is below: ")
+        pokemonbox1()
+
+        proceed = input("Do you want to continue?: ")
+        if (proceed == 'y' or proceed == 'Y'):
+            pass
+        else:
+            return
+
 if __name__ == '__main__':
     cash = 2000
     badges = 0
@@ -18,72 +91,17 @@ if __name__ == '__main__':
 
     lenpokemon = str(len(pokemon))
     print("\nNumber of pokemon in hand: " + lenpokemon)
+
     print("The pokemon you possess are: ")
-    for i in range(0, int(lenpokemon)):
-        print(pokemon[i])
+    pokemonparty()
 
     lenbox1 = str(len(box1))
-    choice = input("\nDo you want to change pokemon? : ")
     print("Number of pokemon in box1 :" + lenbox1)
-    while (choice == 'Y' or choice == 'y'):
 
-        print("You can change the pokemon listed below from the box: ")
+    choice = input("\nDo you want to change pokemon? : ")
+    changepokemon()
 
-        for j in range(0, int(lenbox1)):
-            print(box1[j])
+    newchoice = input("Do you wanna catch pokemon?: ")
+    catchpokemon()
 
-            addpokemon = input("Enter the pokemon to be added to your party:")
-            sendpokemon = input("Enter the pokemon to be sent to the box")
-
-            if addpokemon not in box1:
-                print("Sorry, "+addpokemon+" is not in the box")
-
-                if sendpokemon not in pokemon:
-                    print("Sorry, "+sendpokemon+" is not in your party")
-                else:
-                    pass
-            else:
-                pokemon.remove(sendpokemon)
-                #print(pokemon)
-                pokemon.append(addpokemon)
-                #print(pokemon)
-                box1.remove(addpokemon)
-                #print(box1)
-                box1.append(sendpokemon)
-                #print(box1)
-                print("The "+addpokemon+" has been added to your party and "+sendpokemon+ " has been send to your PC")
-
-                lenpokemon = int(len(pokemon))
-                print("\nYour new pokemon party is below: ")
-
-                for k in range(0,lenpokemon):
-                    print(pokemon[k])
-
-                print("\nYour updated box is below: ")
-
-                for l in range(0,int(lenbox1)):
-                    print(box1[l])
-    else:
-        pass
-
-        newchoice = input("Do you wanna catch pokemon?: ")
-        while newchoice =='Y' or newchoice =='y':
-            newpokemon = input("Enter the new pokemon you just caught: ")
-
-            if int(lenpokemon) >= 6:
-                print("Sending the new pokemon to box as you already have 6 pokemon")
-                box1.append(newpokemon)
-            else:
-                pokemon.append(newpokemon)
-
-            lenpokemon = len(pokemon)
-            lenbox1 = len(box1)
-            print("\nYour new pokemon party is below: ")
-
-            for k in range(0, lenpokemon):
-                print(pokemon[k])
-
-            print("\nYour updated box is below: ")
-
-            for l in range(0, lenbox1):
-                print(box1[l])
+    print("\nThank you for running my application")
