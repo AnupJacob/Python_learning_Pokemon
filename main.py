@@ -1,7 +1,7 @@
 
 # ---------------------------------
 
-# File          : Average.py
+# File          : main.py
 # Author        : Anup Jacob
 # Version       : v1.1
 # Created Date  : 28/09/2022
