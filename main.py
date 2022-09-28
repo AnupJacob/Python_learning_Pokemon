@@ -1,6 +1,14 @@
-'''
-# Sample program to register pokemon trainer, add or remove into party/box first program
-'''
+
+# ---------------------------------
+
+# File          : Average.py
+# Author        : Anup Jacob
+# Version       : v1.1
+# Created Date  : 28/09/2022
+# Modified Date : 
+# Description   : Sample program to register pokemon trainer, add or remove into party/box first program
+# Licensing     : MIT License
+# ----------------------------------
 
 
 def pokemonparty():
@@ -105,3 +113,4 @@ if __name__ == '__main__':
     catchpokemon()
 
     print("\nThank you for running my application")
+    
