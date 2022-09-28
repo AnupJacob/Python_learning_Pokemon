@@ -1,6 +1,5 @@
 
 # ---------------------------------
-
 # File          : main.py
 # Author        : Anup Jacob
 # Version       : v1.1
@@ -10,12 +9,11 @@
 # Licensing     : MIT License
 # ----------------------------------
 
-
 def pokemonparty():
 
     for i in range(0, len(pokemon)):
         print(pokemon[i])
-    return "success"
+    return
 
 def pokemonbox1():
     for j in range(0, len(box1)):
@@ -60,7 +58,7 @@ def changepokemon():
                 return
 
 def catchpokemon():
-    while newchoice == 'Y' or newchoice == 'y':
+    while choice == 'Y' or choice == 'y':
         newpokemon = input("Enter the new pokemon you just caught: ")
 
         if int(lenpokemon) >= 6:
@@ -103,14 +101,13 @@ if __name__ == '__main__':
     print("The pokemon you possess are: ")
     pokemonparty()
 
-    lenbox1 = str(len(box1))
-    print("Number of pokemon in box1 :" + lenbox1)
+    print("Number of pokemon in box1 :" + str(len(box1)))
 
     choice = input("\nDo you want to change pokemon? : ")
     changepokemon()
 
-    newchoice = input("Do you wanna catch pokemon?: ")
+    choice = input("Do you wanna catch pokemon?: ")
     catchpokemon()
 
-    print("\nThank you for running my application")
+    print("\nThank you "+player+" for running my pokemon application")
     
