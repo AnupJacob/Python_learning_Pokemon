@@ -2,9 +2,9 @@ import random
 # ---------------------------------
 # File          : Pokemon_app.py
 # Author        : Anup Jacob
-# Version       : v1.1
+# Version       : v1.2
 # Created Date  : 28/09/2022
-# Modified Date : 
+# Modified Date : 10/10/2022
 # Description   : Sample program to register pokemon trainer, add or remove into party/box first program
 # Licensing     : MIT License
 # ----------------------------------
