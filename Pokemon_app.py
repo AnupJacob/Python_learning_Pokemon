@@ -1,4 +1,4 @@
-
+import random
 # ---------------------------------
 # File          : Pokemon_app.py
 # Author        : Anup Jacob
@@ -25,6 +25,22 @@ class Pokemon_app:
         for j in range(0, len(box1)):
             print(box1[j])
         return "success"
+
+    def playerwalk(self):
+
+        print("You start walking looking for pokemon")
+        encounter = random.randint(1,3)
+        #print("The encountered distance is : "+str(encounter))
+
+        if(encounter == 1):
+            print("Encountered pokemon!!")
+            return 1
+
+        choice = input("Do you want to continue?: ")
+        if choice == 'Y' or choice =='y':
+            return
+        else:
+            self.playerwalk()
 
     def changepokemon(choice,pokemon,box1):
 
@@ -88,11 +104,11 @@ class Pokemon_app:
             for j in range(0, len(box1)):
                 print(box1[j])
 
-            proceed = input("Do you want to continue?: ")
+            '''proceed = input("Do you want to continue?: ")
             if (proceed == 'y' or proceed == 'Y'):
                 pass
-            else:
-                return
+            else:'''
+            return
 
     if __name__ == '__main__':
         cash = 2000
@@ -118,7 +134,20 @@ class Pokemon_app:
         choice = input("\nDo you want to change pokemon? : ")
         changepokemon(choice, pokemon, box1)
 
-        choice = input("Do you wanna catch pokemon?: ")
-        catchpokemon(choice, pokemon, box1)
+        choice = input("\nDo you want to look for pokemon? :")
+        while choice =='Y'or choice=='y':
+            encounter = playerwalk(1)
 
+            if(encounter == 1):
+                choice = input("\nDo you wanna catch pokemon?: ")
+                catchpokemon(choice, pokemon, box1)
+
+                choice = input("\nDo you want to continue the journey? :")
+                if choice == 'Y' or choice == 'y':
+                    pass
+                else:
+                    continue
+        pokemonnumber = len(pokemon)+len(box1)
+
+        print("\nThe total number of pokemon you have caught is :"+str(pokemonnumber))
         print("\nThank you " + player + " for running my pokemon application")
